@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+    input{
+        margin: 10px;
+        padding: 10px;
+        width: 300px;
+        
+    }
+
+    body{
+        background-color: lightblue;
+        padding-top: 50px;
+    }
+
+
+    button{
+        background-color: aqua;
+        font-size: 16px;
+        color:blue;
+        padding: 10px;
+    }
+
+    #amounth,#description{
+        color:blue
+    }
+        </style>
+            <!-- <script src="https://sdk.monify.com/v1.0.0/monify.min.js"></script> -->
+    <script
+      type="text/javascript"
+      src="https://sdk.monnify.com/plugin/monnify.js">
+    </script>
+</head>
+
+
+<body>
+    
+
+    <center>
+        <div>
+
+            <form>
+            
+                <h2>
+                    Enter the  your detail to continue payment
+                </h2>
+
+                <input  type="email"  placeholder="enter email" id="email"> <br>
+                <input type="email"    placeholder="confirm email"  id="emailConfirm"><br>
+
+                <input type="text"  placeholder="enter name" id="customName"> <br>
+
+
+
+                <hr>
+                <h4> Amounth :   <span id="amount">33333</span></h4>
+
+                <span>Description</span> <br>
+                
+                <h4 id="title" style="color:blueviolet">kjlhljhlknlknknk;lnl</h4> <br>
+
+                <span id="description"  style="color:blueviolet">kjlhljhlknlknknk;lnl</span> <br>
+
+                <hr>
+                <button type="submit" id="submit">Start payment</button>
+             </form>
+        </div>
+        
+    </center>
+</body>
+
+      <script src="monnifyApi.js"></script>
+<script>
+
+var email  = document.getElementById("email");
+var emailConfirm =  document.getElementById("emailConfirm");
+   
+
+        
+var params = new URLSearchParams(location.search);
+  var title = params.get("title");
+  var subtitle = params.get("subtitle");
+  var price =  params.get("price");
+
+var titleSpan = document.getElementById("title");
+var description = document.getElementById("description");
+var amount =  document.getElementById("amount");
+amount.innerText =price;
+description.innerText = subtitle;
+titleSpan.innerText = title;
+//    submit.addEventListener("click", e=>{
+//       e.preventDefault();
+//    });
+</script>
+
+
+</html>
