@@ -7,28 +7,58 @@ const monify ={
 // Get the pay button element
 var email  = document.getElementById("email");
 
-const submit = document.getElementById('submit');
-const customName = document.getElementById("customName");
-// Add event listener to the pay button
-
+var submit = document.getElementById('submit');
+var customName = document.getElementById("customName");
+var emailConfirm = document.getElementById("emailConfirm");
+var error =  document.getElementById("error");
 submit.addEventListener('click', (e) => {
   e.preventDefault();
-  alert("OK");
+  
   // Create a payment request
   var emailValue = email.value;
 var customNameValue  = customName.value;
+var emailConfirmValue =  emailConfirm.value;
 var params = new URLSearchParams(location.search);
   var title = params.get("title");
   var subtitle = params.get("subtitle");
   var price =  params.get("price")*1;
 
-  // async()=>{
-  // await payWithMonnify(price,customNameValue,emailValue,monify.apiKey,monify.contractCode);
+  var errror = "";
+  
+  if(emailValue != "" && emailValue != null  && customNameValue != "" && customNameValue != null){
+   
+    if(emailConfirmValue != null && emailConfirmValue != ""){
 
-  // }
 
-  payWithMonnifyNoPromise(price,customNameValue,emailValue,monify.apiKey,monify.contractCode,title+"/"+subtitle);
+      if(emailValue.toLowerCase() == emailConfirmValue.toLowerCase() ){
+        payWithMonnifyNoPromise(price,customNameValue,emailValue,monify.apiKey,monify.contractCode,title+"/"+subtitle);
+  
+      }else{
+        errror= "Errror: email not matched";
+       
+      }
+    }else{
+      errror= "Errror: email not confirmed";
+       
+    }
+   
+  }
 
+  else if(emailValue == "" || emailValue == null ){
+    errror= "Errror: Enter valid email";
+
+  }
+
+  else if(customNameValue == "" || customNameValue == null ){
+    errror= "Errror: Enter valid Name";
+
+  }
+  else{
+
+    errror= "Errror: Enter valid input";
+  }
+
+  error.innerText= errror;
  
 });
 

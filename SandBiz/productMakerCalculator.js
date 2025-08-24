@@ -12,8 +12,9 @@ Ordernowbtn.addEventListener("click", e=>{
     var price = Ordernowbtn.getAttribute("price");
     var title = Ordernowbtn.getAttribute("title");
     var subtitle = Ordernowbtn.getAttribute("subtitle");
+    var quantity = Ordernowbtn.getAttribute("quantity");
 
-    windows.location.href =`SandBiz/MakePayment.html?price="${price}"&&title="${title}"&&subtitle="${subtitle}"`;
+    window.location.href =`SandBiz/MakePayment.html?price=${price}&&title=${title}&&subtitle=${subtitle}&&quantity=${quantity}`;
     
 
 });
@@ -42,6 +43,8 @@ function calculatePrice(counterQuantity){
    console.log(mainPrice)
     price.innerText = result;
     Ordernowbtn.setAttribute("price",result);
+    
+    Ordernowbtn.setAttribute("quantity",counterQuantity);
 
 }
 

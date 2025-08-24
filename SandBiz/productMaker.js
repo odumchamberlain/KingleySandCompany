@@ -42,12 +42,10 @@ Array.from(productDataOfVan).forEach((data,index)=>{
 
 
 
-          <a href="SandBiz/MakePayment.html?price=${data.price}&&title=${data.title}&&subtitle=${data.subtitle}"> 
-               <button id="Ordernow${index}"  price="${data.price}" title="${data.title}" 
-               subtitle="${data.subtitle}" style="color:white; background-color: blue;">
-                Order now
-               </button>
-         </a>
+         <button id="Ordernow${index}" style="color:white; background-color: blue;" price="${data.price}" title="${data.title}" subtitle="${data.subtitle}" quantity="${1}">
+         Order now
+         </button>
+         
     </div>
 
     `;
@@ -133,7 +131,7 @@ index = index+100;
 
 
 
-               <button id="Ordernow${index}" style="color:white; background-color: blue;" price="${data.price}" title="${data.title}" subtitle="${data.subtitle}">
+               <button id="Ordernow${index}" style="color:white; background-color: blue;" price="${data.price}" title="${data.title}" subtitle="${data.subtitle}" quantity="${1}">
                 Order now
                </button>
          
@@ -145,11 +143,8 @@ index = index+100;
   calEventListenerForBag(index);
 
     
-index = index-100;
-
-
-    
-    
+    index = index-100;
+ 
     if(index > 0){
     layOutDataForBag = layOutDataForBag+result;
 

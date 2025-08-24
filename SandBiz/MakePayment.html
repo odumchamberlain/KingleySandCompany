@@ -49,20 +49,21 @@
                 <h2>
                     Enter the  your detail to continue payment
                 </h2>
+                <span id="error" style="color:red"> </span> <br>
 
-                <input  type="email"  placeholder="enter email" id="email"> <br>
-                <input type="email"    placeholder="confirm email"  id="emailConfirm"><br>
+                <input  type="email"  placeholder="enter email" id="email" required> <br>
+                <input type="email"    placeholder="confirm email"  id="emailConfirm" required><br>
 
-                <input type="text"  placeholder="enter name" id="customName"> <br>
+                <input type="text"  placeholder="enter name" id="customName" required> <br>
 
 
 
                 <hr>
                 <h4> Amount:   <span id="amount">33333</span></h4>
 
-                <span>Description</span> <br>
+                <span>Description</span> 
                 
-                <h4 id="title" style="color:blueviolet"></h4> <br>
+                <h4 id="title" style="color:blueviolet"></h4> 
 
                 <span id="description"  style="color:blueviolet"></span> <br>
 
@@ -86,16 +87,15 @@ var params = new URLSearchParams(location.search);
   var title = params.get("title");
   var subtitle = params.get("subtitle");
   var price =  params.get("price");
+var quantity   =  params.get("quantity");
 
 var titleSpan = document.getElementById("title");
 var description = document.getElementById("description");
 var amount =  document.getElementById("amount");
 amount.innerText =price;
-description.innerText = subtitle;
+description.innerText = subtitle+".  (Size = "+quantity+")";
 titleSpan.innerText = title;
-//    submit.addEventListener("click", e=>{
-//       e.preventDefault();
-//    });
+
 </script>
 
 
