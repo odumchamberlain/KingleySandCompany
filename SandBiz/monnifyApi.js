@@ -1,8 +1,7 @@
 // Set your Monify API keys
 const monify ={
   apiKey: 'MK_TEST_9HGL0E2H3W',
-  secretKey: 'KFKRBVBKKZKU41Z807K23K8NMDSULXZC',
-  contractCode: '5285502994',
+  contractCode: '5285502994'
 };
 
 // Get the pay button element
@@ -28,48 +27,9 @@ var params = new URLSearchParams(location.search);
 
   // }
 
-  payWithMonnifyNoPromise(price,customNameValue,emailValue,monify.apiKey,monify.contractCode);
+  payWithMonnifyNoPromise(price,customNameValue,emailValue,monify.apiKey,monify.contractCode,title+"/"+subtitle);
 
-  // const paymentRequest = {
-  //   amount: price, // Amount in kobo (NGN)
-  //   currency: 'NGN',
-  //   reference: 'unique_reference',
-  //   customer: {
-  //     email: emailValue,
-  //     name: customNameValue,
-  //   },
-  //   paymentMethods: ['CARD', 'ACCOUNT_TRANSFER'],
-  // };
-
-  // // Initialize the payment
-  // monify.checkout(paymentRequest)
-  //   .then((response) => {
-  //     // Handle the response
-  //     if (response.status === 'success') {
-  //       // Payment was successful, verify the transaction
-  //       const transactionReference = response.transactionReference;
-  //       monify.verifyTransaction(transactionReference)
-  //         .then((verifyResponse) => {
-  //           // Handle the verification response
-  //           if (verifyResponse.status === 'success') {
-  //             // Payment verified, update your records
-  //             console.log('Payment successful!');
-  //           } else {
-  //             // Payment verification failed
-  //             console.log('Payment verification failed!');
-  //           }
-  //         })
-  //         .catch((error) => {
-  //           console.error(error);
-  //         });
-  //     } else {
-  //       // Payment failed or was cancelled
-  //       console.log('Payment failed or was cancelled!');
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
+ 
 });
 
 
@@ -116,7 +76,7 @@ function  payWithMonnify(amount,name,email,apiKey,contractCode) {
           onComplete: function (response) {
             //Implement what happens when the transaction is completed.
             console.log(response)
-            alert("Payment Completed Successfully");
+            alert("Payment Completed Successfully, Check your email for receipt, Item will be deliverd to you successfuly. ");
           },
           onClose: function (data) {
             //Implement what should happen when the modal is closed here
@@ -133,7 +93,7 @@ function  payWithMonnify(amount,name,email,apiKey,contractCode) {
       }
 
 
-      function  payWithMonnifyNoPromise(amount,name,email,apiKey,contractCode) {
+      function  payWithMonnifyNoPromise(amount,name,email,apiKey,contractCode,paymentDescription) {
 
 
 
@@ -146,7 +106,7 @@ function  payWithMonnify(amount,name,email,apiKey,contractCode) {
           customerEmail: email,
           apiKey: apiKey,
           contractCode: contractCode,
-          paymentDescription: "Testing Data here",
+          paymentDescription: paymentDescription,
           metadata: {
             name: "Damilare",
             age: 45,

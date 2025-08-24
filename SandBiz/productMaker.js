@@ -33,7 +33,7 @@ Array.from(productDataOfVan).forEach((data,index)=>{
 
           <h4>
                 Quantity: <br><input type="number" id="quantity${index}" value="1">  
-                 <span class="mathsigns" id="plus${index}" style="color:white">+</span> &nbsp; &nbsp; &nbsp;<span class="mathsigns" id="minus${index}">-</span>
+                 <button class="mathsigns" id="plus${index}" style="color:white">+</button> &nbsp; &nbsp; &nbsp;<button class="mathsigns" id="minus${index}">-</button>
          </h4>
 
         <h4>
@@ -42,8 +42,9 @@ Array.from(productDataOfVan).forEach((data,index)=>{
 
 
 
-          <a href="SandBiz/MakePayment.html?price=${data.price} && title=${data.title}&& subtitle=${data.subtitle}"> 
-               <button id="Ordernow${index}" style="color:white; background-color: blue;">
+          <a href="SandBiz/MakePayment.html?price=${data.price}&&title=${data.title}&&subtitle=${data.subtitle}"> 
+               <button id="Ordernow${index}"  price="${data.price}" title="${data.title}" 
+               subtitle="${data.subtitle}" style="color:white; background-color: blue;">
                 Order now
                </button>
          </a>
@@ -123,7 +124,7 @@ index = index+100;
 
           <h4>
                 Quantity: <br><input type="number" id="quantity${index}" value="1">  
-                 <span class="mathsigns" id="plus${index}" style="color:white">+</span> &nbsp; &nbsp; &nbsp;<span class="mathsigns" id="minus${index}">-</span>
+                 <button class="mathsigns" id="plus${index}" style="color:white">+</button> &nbsp; &nbsp; &nbsp;<button class="mathsigns" id="minus${index}">-</button>
          </h4>
 
         <h4>
@@ -132,11 +133,10 @@ index = index+100;
 
 
 
-        <a href="SandBiz/MakePayment.html?price=${data.price}&&title=${data.title}&&subtitle=${data.subtitle}"> 
-               <button id="Ordernow${index}" style="color:white; background-color: blue;">
+               <button id="Ordernow${index}" style="color:white; background-color: blue;" price="${data.price}" title="${data.title}" subtitle="${data.subtitle}">
                 Order now
                </button>
-         </a>
+         
     </div>
 
 

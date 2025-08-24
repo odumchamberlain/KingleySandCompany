@@ -6,6 +6,17 @@ var plus = document.getElementById("plus"+index);
 var quantity = document.getElementById("quantity"+index);
 var price =  document.getElementById("price"+index);
 var minus = document.getElementById("minus"+index);
+var Ordernowbtn  = document.getElementById("Ordernow"+index);
+
+Ordernowbtn.addEventListener("click", e=>{
+    var price = Ordernowbtn.getAttribute("price");
+    var title = Ordernowbtn.getAttribute("title");
+    var subtitle = Ordernowbtn.getAttribute("subtitle");
+
+    windows.location.href =`SandBiz/MakePayment.html?price="${price}"&&title="${title}"&&subtitle="${subtitle}"`;
+    
+
+});
 var counter = 1;
 plus.addEventListener("click",e=>{
  
@@ -15,7 +26,7 @@ plus.addEventListener("click",e=>{
 });
 
 minus.addEventListener("click",e=>{
-    if( counter >0){
+    if( counter >1 && counter !=1){
         counter= counter-1;
         quantity.value = counter;
         calculatePrice(counter);
@@ -30,6 +41,8 @@ function calculatePrice(counterQuantity){
 
    console.log(mainPrice)
     price.innerText = result;
+    Ordernowbtn.setAttribute("price",result);
+
 }
 
 
